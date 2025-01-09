@@ -10,3 +10,8 @@
 <br>
 
 <p>Livro: {{ livro | json}}</p>
+<ul>
+  @for (livro of livros; track $index) {
+    <li>{{ livro }}</li>
+  }
+</ul>

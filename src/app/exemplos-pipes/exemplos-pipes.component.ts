@@ -17,4 +17,6 @@ export class ExemplosPipesComponent {
     dataLancamento: new Date(2016, 5, 23),
     url: 'http://a.co/glqjpRP'
   };
+
+  livros: string[] = ['Angular', 'Laravel']
 }
