@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { CamelCasePipe } from '../camel-case.pipe';
 
 @Component({
   selector: 'app-exemplos-pipes',
   templateUrl: './exemplos-pipes.component.html',
   styleUrl: './exemplos-pipes.component.scss',
-  imports: [CommonModule]
+  imports: [CommonModule, CamelCasePipe]
 })
 export class ExemplosPipesComponent {
   livro: any = {
