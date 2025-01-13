@@ -6,7 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ArrayTransformPipe implements PipeTransform {
 
   transform(value: string[], args?: any): any {
-    console.log(value)
     if(value.length === 0 || args === undefined){
       return value
     }

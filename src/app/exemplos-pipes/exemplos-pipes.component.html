@@ -7,13 +7,29 @@
 <p>Data Lançamento: {{ livro.dataLancamento | date:'dd/MM/yyyy' }}</p>
 <p>Url: {{ livro.url }}</p>
 
-<br>
-
 <p>Livro: {{ livro | json}}</p>
+<br>
 <input type="text" [(ngModel)]="filtro">
-{{ filtro }}
+<br>
+<input type="text" #newCurso>
+<button (click)="addCurso(newCurso.value)">Add Curso</button>
+<h5>Pipe Puro</h5>
 <ul>
   @for (livro of livros | arrayTransform:filtro; track $index) {
+    <li>{{ livro }}</li>
+  }
+</ul>
+
+<h5>Pipe ImPuro</h5>
+<ul>
+  @for (livro of livros | inpureFilter:filtro; track $index) {
+    <li>{{ livro }}</li>
+  }
+</ul>
+
+<h5>Maneira correta de usar filtro nos projetos</h5>
+<ul>
+  @for (livro of obterCursos() | inpureFilter:filtro; track $index) {
     <li>{{ livro }}</li>
   }
 </ul>
