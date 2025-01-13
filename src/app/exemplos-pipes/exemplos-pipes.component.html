@@ -10,8 +10,10 @@
 <br>
 
 <p>Livro: {{ livro | json}}</p>
+<input type="text" [(ngModel)]="filtro">
+{{ filtro }}
 <ul>
-  @for (livro of livros; track $index) {
+  @for (livro of livros | arrayTransform:filtro; track $index) {
     <li>{{ livro }}</li>
   }
 </ul>
