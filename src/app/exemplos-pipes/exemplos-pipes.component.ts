@@ -5,6 +5,7 @@ import { FiltroPipe } from '../pipes/filtro.pipe';
 import { ArrayTransformPipe } from '../pipes/array-transform.pipe';
 import { FormsModule } from '@angular/forms';
 import { InpurePipePipe } from '../pipes/inpure-pipe.pipe';
+import { interval, Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-exemplos-pipes',
@@ -41,4 +42,12 @@ export class ExemplosPipesComponent {
       return false
     });
   }
+
+  valorAsync = new Promise((resolve, reject) => {
+    setTimeout(() => resolve('Valor assíncrono'), 200)
+  })
+
+  valorAsync2: Observable<string> = interval(2000).pipe(
+    () => 'Valor assíncrono'
+  );
 }
